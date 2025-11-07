@@ -1,22 +1,21 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+// app/layout.tsx
+import './globals.css';
 
-const inter = Inter({ subsets: ["latin"] });
+export const metadata = { title: 'StudentHub', description: 'AI Landing Page SaaS' };
 
-export const metadata: Metadata = {
-  title: "Lama Dev E-Commerce Application",
-  description: "A complete e-commerce application with Next.js and Wix",
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <header className="p-4 shadow-md bg-white flex justify-between items-center">
+          <h1 className="font-bold text-xl">StudentHub</h1>
+          <nav>
+            <a href="/login" className="mr-4">Login</a>
+            <a href="/signup">Signup</a>
+          </nav>
+        </header>
+        <main className="p-8">{children}</main>
+      </body>
     </html>
   );
 }
